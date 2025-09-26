@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHG | Faith Heroic Generation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-dark: #00264d;
+            --primary-blue: #003366;
+            --accent-cyan: #00aced;
+            --light-bg: #f9f9f9;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-dark);
+            color: var(--text-light);
+            padding: 0.75rem 2rem; /* Adjusted padding for image logo */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        /* Style for the logo image in the navbar */
+        nav .logo img {
+            height: 50px; /* Controls the height of your logo */
+            width: auto;
+        }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: var(--accent-cyan); }
+
+        /* Hero Section with Logo Background */
+        .hero {
+            /* Your FHG logo as background */
+            background: 
+                linear-gradient(rgba(0, 38, 77, 0.8), rgba(0, 38, 77, 0.8)), /* Dark overlay for text readability */
+                url('images/fhg-logo.JPG') center/contain no-repeat; /* Your logo */
+            
+            background-blend-mode: multiply; /* Blends the linear-gradient and logo */
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px;
+            display: flex; /* Using flexbox for vertical centering */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px; /* Ensures enough space for the content and logo */
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; animation: fadeIn 2s ease-in-out; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn {
+            display: inline-block;
+            background: var(--accent-cyan);
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .btn:hover { background: linear-gradient(90deg, var(--accent-cyan), #0084a8); transform: scale(1.05); }
+
+        /* General Section Styling */
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: ""; display: block; width: 60px; height: 3px;
+            background: var(--accent-cyan); margin: 10px auto 0;
+        }
+
+        /* Achievers Section */
+        .achievers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .achiever {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .achiever:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 38, 77, 0.2);
+        }
+        .achiever img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #e6f0ff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+        }
+        .achiever-info {
+            padding: 0;
+        }
+        .achiever-info p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .achiever-info b {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1rem;
+        }
+        .achiever-info b span {
+            font-weight: 400;
+            color: #777;
+        }
+
+        /* Preview Sections with repeating Logo Background */
+        .preview-section {
+            background: #e6f0ff;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .preview-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/fhg-logo.png'); /* Assuming you have a PNG for the repeating pattern */
+            background-repeat: repeat;
+            background-size: 250px;
+            opacity: 0.04;
+            z-index: -1;
+        }
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .preview-card {
+            background: white; padding: 25px; border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .preview-card:hover { transform: translateY(-8px); }
+        .preview-card h3 { margin-bottom: 15px; color: var(--primary-blue); }
+        .text-center { text-align: center; }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark); color: var(--text-light);
+            text-align: center; padding: 30px 15px;
+        }
+        footer .links a, footer .social a { color: var(--accent-cyan); margin: 0 10px; text-decoration: none; transition: text-decoration 0.3s; }
+        footer .links a:hover, footer .social a:hover { text-decoration: underline; }
+        footer .links { margin-bottom: 15px; }
+        footer .social { margin-top: 10px; }
+
+        /* Animations & Responsive */
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(30px);} to {opacity: 1; transform: translateY(0);} }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { flex-direction: column; }
+            nav ul { margin-top: 1rem; flex-direction: column; align-items: center; gap: 10px; }
+            .achiever img { width: 120px; height: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="fhglogo.JPG" alt="FHG Logo"> 
+        </a>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome to Faith Heroic Generation</h1>
+        <p>Empowering professionals and entrepreneurs with cutting-edge digital skills and strategic growth opportunities.</p>
+        <a href="https://faitheroic.com/" class="btn" target="_blank">Join Our Community</a>
+    </header>
+
+    <section id="achievers">
+        <div class="container">
+            <h2 class="section-title">Meet Our Valued Members</h2>
+            <div class="achievers-grid">
+                <div class="achiever">
+                    <img src="Bolu.jpg" alt="Professional portrait of Bolu">
+                    <div class="achiever-info">
+                        <p>"FHG provided the strategic tools and mentorship crucial for scaling my business. I'm now thriving with newfound clarity and direction."</p>
+                        <b>Mr. Bolu <span>Member</span></b>
+                    </div>
+                </div>
+                <div class="achiever">
+                    <img src="Marayo.jpg" alt="Professional portrait of Morayo">
+                    <div class="achiever-info">
+                        <p>"The comprehensive training transformed my approach to digital marketing, leading to significant client growth and measurable impact."</p>
+                        <b>Ms. Morayo <span>Member</span></b>
+                    </div>
+                </div>
+                <div class="achiever">
+                    <img src="khalid.jpg" alt="Professional portrait of Khalid">
+                     <div class="achiever-info">
+                        <p>"With FHG's support, I gained invaluable skills in web development, enabling me to launch innovative and successful projects with confidence."</p>
+                        <b>Mr. Khalid <span>Member</span></b>
+                    </div>
+                </div>
+                <div class="achiever">
+                    <img src="Bright.jpg" alt="Professional portrait of Bright">
+                    <div class="achiever-info">
+                        <p>"The community and advanced strategies at FHG have been pivotal in achieving sustained success in my network marketing ventures."</p>
+                        <b>Mr. Bright <span>Member</span></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <h3>Digital Marketing</h3>
+                    <p>Master social media, SEO, and content creation to build a powerful online brand.</p>
+                </div>
+                <div class="preview-card">
+                    <h3>Web & App Development</h3>
+                    <p>Learn to create stunning websites and functional mobile apps from scratch.</p>
+                </div>
+                <div class="preview-card">
+                    <h3>Network Marketing</h3>
+                    <p>Join a supportive community focused on teamwork, leadership, and business growth.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="services.html" class="btn">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonial-preview">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <div class="preview-card" style="max-width: 700px; margin: auto;">
+                <p>"FHG gave me the courage and tools to start my online business. Today, I earn consistently and inspire others!"</p>
+                <b>- Adebayo Koker Imole</b>
+            </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="testimonials.html" class="btn">Read More Testimonials</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="links">
+                <a href="index.html">Home</a> |
+                <a href="about.html">About</a> |
+                <a href="services.html">Services</a> |
+                <a href="gallery.html">Gallery</a> |
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 Faith Heroic Generation | Designed for growth and impact</p>
+            <div class="social">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

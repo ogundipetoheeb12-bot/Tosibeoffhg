@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | FHG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-dark: #00264d;
+            --primary-blue: #003366;
+            --accent-cyan: #00aced;
+            --light-bg: #f9f9f9;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-dark); color: var(--text-light); padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;
+        }
+        nav .logo { font-size: 1.7rem; font-weight: 700; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: var(--accent-cyan); }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 38, 77, 0.8), rgba(0, 51, 102, 0.8));
+            color: var(--text-light); text-align: center; padding: 60px 20px;
+        }
+        .page-header h1 { font-size: 2.5rem; }
+
+        /* Testimonials Section */
+        .testimonials-section { padding: 80px 0; }
+        .section-title {
+            text-align: center; margin-bottom: 50px; color: var(--primary-blue);
+            font-size: 2.2rem; position: relative;
+        }
+        .section-title::after {
+            content: ""; display: block; width: 60px; height: 3px;
+            background: var(--accent-cyan); margin: 10px auto 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--accent-cyan);
+        }
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .testimonial-card b {
+            display: block;
+            text-align: right;
+            color: var(--primary-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark); color: var(--text-light);
+            text-align: center; padding: 30px 15px; margin-top: 50px;
+        }
+        footer .links a, footer .social a { color: var(--accent-cyan); margin: 0 10px; text-decoration: none; }
+        footer .links a:hover, footer .social a:hover { text-decoration: underline; }
+        footer .links { margin-bottom: 15px; }
+        footer .social { margin-top: 10px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            nav { flex-direction: column; }
+            nav ul { margin-top: 1rem; flex-direction: column; align-items: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">FHG</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="testimonials.html" class="active">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <h1>What Our Members Say</h1>
+    </header>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <blockquote>"FHG gave me the courage and tools to start my online business. Today, I earn consistently and inspire others!"</blockquote>
+                    <b>Adebayo Koker Imole</b>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"The mentorship is next level. Every session feels like a direct investment into my future success. I'm so grateful."</blockquote>
+                    <b>Fakulujo Tobiloba</b>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"Thanks to FHG, I now manage a team and have achieved a level of financial freedom I never thought possible."</blockquote>
+                    <b>Popoola Paul Pipeloluwa</b>
+                </div>
+                <div class="testimonial-card">
+                    <blockquote>"The skills I learned in web development were practical and immediately applicable. I landed my first client within a month."</blockquote>
+                    <b>Oluwode Kayode</b>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="links">
+                <a href="index.html">Home</a> |
+                <a href="about.html">About</a> |
+                <a href="services.html">Services</a> |
+                <a href="gallery.html">Gallery</a> |
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 Faith Heroic Generation | Designed for growth and impact</p>
+            <div class="social">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

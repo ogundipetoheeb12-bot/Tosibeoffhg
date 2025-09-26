@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | FHG</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-dark: #00264d;
+            --primary-blue: #003366;
+            --accent-cyan: #00aced;
+            --light-bg: #f9f9f9;
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-dark); color: var(--text-light); padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;
+        }
+        nav .logo { font-size: 1.7rem; font-weight: 700; }
+        nav ul { list-style: none; display: flex; gap: 20px; }
+        nav ul li a { color: var(--text-light); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: var(--accent-cyan); }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 38, 77, 0.8), rgba(0, 51, 102, 0.8));
+            color: var(--text-light); text-align: center; padding: 60px 20px;
+        }
+        .page-header h1 { font-size: 2.5rem; }
+
+        /* About Section */
+        .about-section { padding: 80px 0; }
+        .about-content {
+            max-width: 800px; margin: auto; background: white; padding: 40px;
+            border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .about-content h2 { color: var(--primary-blue); margin-bottom: 20px; }
+        .about-content p { margin-bottom: 15px; line-height: 1.8; }
+        .about-content b { color: var(--primary-blue); }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark); color: var(--text-light);
+            text-align: center; padding: 30px 15px; margin-top: 50px;
+        }
+        footer .links a, footer .social a { color: var(--accent-cyan); margin: 0 10px; text-decoration: none; }
+        footer .links a:hover, footer .social a:hover { text-decoration: underline; }
+        footer .links { margin-bottom: 15px; }
+        footer .social { margin-top: 10px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 2rem; }
+            nav { flex-direction: column; }
+            nav ul { margin-top: 1rem; flex-direction: column; align-items: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">FHG</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <h1>About Faith Heroic Generation</h1>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2>Our Mission & Vision</h2>
+                <p>
+                    <b>Faith Heroic Generation (FHG)</b> is a movement designed to build strong leaders through technology and mentorship. Our core vision is to equip individuals with high-income <b>digital skills</b> that generate sustainable income, alongside powerful opportunities for <b>network marketing</b> growth.
+                </p>
+                <p>
+                    We believe that true financial freedom is achieved not just by learning a skill, but by mastering its application and building a supportive network. Our programs are crafted to provide hands-on training, expert mentorship, and a collaborative environment where every member is empowered to succeed.
+                </p>
+                <h2>Why Choose FHG?</h2>
+                <p>
+                    Our approach is holistic. We don't just teach you how to code a website or run a marketing campaign; we teach you how to think like an entrepreneur. We focus on building resilience, fostering leadership qualities, and creating a mindset geared for long-term success. With FHG, you don’t just learn—you build a legacy.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="links">
+                <a href="index.html">Home</a> |
+                <a href="about.html">About</a> |
+                <a href="services.html">Services</a> |
+                <a href="gallery.html">Gallery</a> |
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 Faith Heroic Generation | Designed for growth and impact</p>
+            <div class="social">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
